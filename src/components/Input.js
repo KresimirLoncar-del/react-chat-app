@@ -1,40 +1,49 @@
-import {Component} from "react";
-import React from "react";
+import React, { Component } from 'react';
 
 class Input extends Component {
 
-    constructor() {
+    constructor(props) {
 
-        super();
+        super(props);
 
         this.state = {
-            text: ""
+            message: ''
         }
     }
 
-    onChange(e) {
-        this.setState({text: e.target.value});
+    onChange = (e) => {
+        this.setState({message: e.target.value});
     }
 
-    onSubmit(e) {
+    onClick = (e) => {
         e.preventDefault();
-        this.setState({text: ""});
-        this.props.onSendMessage(this.state.text);
+        this.send();
+    }
+
+    onEnterPress = (e) => {
+        if (e.charCode === 13) {
+            this.send();
+        }
+    }
+
+    send = () => {
+        this.props.onSendMessage(this.state.message);
+        this.setState({message: ''});
     }
 
     render() {
         return (
             <div className="Input">
-                <form onSubmit={e => this.onSubmit(e)}>
+                <div className="form-control">
                     <input
-                        onChange={e => this.onChange(e)}
-                        value={this.state.text}
+                        onChange={this.onChange}
+                        onKeyPress={this.onEnterPress}
+                        value={this.state.message}
                         type="text"
                         placeholder="Enter your message and press ENTER"
-                        autofocus="true"
                     />
-                    <button>Send</button>
-                </form>
+                    <button onClick={this.onClick}>Send</button>
+                </div>
             </div>
         );
     }
