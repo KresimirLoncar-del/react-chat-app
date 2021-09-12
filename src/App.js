@@ -20,10 +20,6 @@ function randomName() {
     return name + " " + surname;
 }
 
-function randomColor() {
-    return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
-}
-
 class App extends Component {
 
     constructor(props) {
@@ -33,8 +29,7 @@ class App extends Component {
         this.state = {
             messages: [],
             member: {
-                username: randomName(),
-                color: randomColor()
+                username: randomName()
             },
             drone: null
         }
@@ -72,9 +67,6 @@ class App extends Component {
 
         room.on('data', (text, member) => {
 
-            console.log("Message -->", text)
-            console.log("Member -->", member)
-
             const messages = [...this.state.messages];
             messages.push({
                 member: member,
@@ -86,7 +78,6 @@ class App extends Component {
     }
 
     onSendMessage = (message) => {
-
         this.state.drone.publish({
             room: "observable-chat-room",
             message
@@ -94,12 +85,9 @@ class App extends Component {
     }
 
     render() {
-
-        console.log("Get messages -->", this.state.messages);
-
         return (
-            <div className="App">
-                <div className="App-header">
+            <div className="app">
+                <div className="app-header">
                     <h1>My Chat App</h1>
                 </div>
                 <Messages
@@ -112,7 +100,6 @@ class App extends Component {
             </div>
         );
     }
-
 }
 
 export default App;

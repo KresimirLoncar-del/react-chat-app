@@ -1,11 +1,12 @@
-.App {
+.app {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    background-image: url("https://www.wallpaperimageshd.com/uploads/2020/01/23/beach-desktop-wallpaper.jpg");
 }
 
-.App-header {
+.app-header {
     background-color: #262626;
     overflow: visible;
     width: 100%;
@@ -13,53 +14,45 @@
     color: white;
 }
 
-.Messages-list {
-    padding: 20px 0;
-    max-width: 900px;
-    width: 100%;
+.messages-list {
+    background-color: white;
+    padding: 20px;
+    max-width: 860px;
+    width: calc(100% - 40px);
     margin: 0 auto;
     list-style: none;
     flex-grow: 1;
     overflow: auto;
 }
 
-.Messages-message {
+.messages-message {
     display: flex;
     margin-top: 10px;
 }
 
-.Messages-message.currentMember {
-    /*justify-content: flex-end;*/
+.messages-message.current-member {
     flex-direction: row-reverse;
     text-align: right;
 }
 
-.Message-content {
+.message-content {
     display: inline-block;
 }
 
-.currentMember > .Message-content {
+.current-member > .message-content {
     align-items: flex-end;
 }
 
-.Messages-message > .avatar {
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 10px -10px;
-}
-
-.Message-content > .username {
+.message-content > .username {
     display: block;
     color: gray;
     font-size: 14px;
     padding-bottom: 4px;
 }
 
-.Message-content > .text {
+.message-content > .text {
     padding: 10px;
-    max-width: 400px;
+    max-width: 46%;
     margin: 0;
     border-radius: 12px;
     background-color: cornflowerblue;
@@ -67,32 +60,31 @@
     display: inline-block;
 }
 
-.currentMember > .Message-content .text {
+.current-member > .message-content .text {
     background-color: orangered;
 }
 
-form {
+.form-control {
     display: flex;
     width: 100%;
     justify-content: space-between;
     max-width: 900px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
 }
 
 input {
-    padding: 5px;
+    padding: 15px;
     font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid orangered;
+    border: 1px solid white;
+    border-top-color: orangered;
     flex-grow: 1;
+    outline: none;
 }
 
 button {
-    padding: 5px 10px;
+    padding: 5px 20px;
     font-size: 16px;
     background-color: orangered;
     color: white;
     border: none;
-    border-radius: 8px;
-    margin-left: 10px;
 }

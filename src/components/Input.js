@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Input extends Component {
 
     constructor(props) {
-
         super(props);
 
         this.state = {
@@ -33,17 +32,15 @@ class Input extends Component {
 
     render() {
         return (
-            <div className="Input">
-                <div className="form-control">
-                    <input
-                        onChange={this.onChange}
-                        onKeyPress={this.onEnterPress}
-                        value={this.state.message}
-                        type="text"
-                        placeholder="Enter your message and press ENTER"
-                    />
-                    <button onClick={this.onClick}>Send</button>
-                </div>
+            <div className="form-control">
+                <input
+                    onChange={this.onChange}
+                    onKeyPress={this.onEnterPress}
+                    value={this.state.message}
+                    type="text"
+                    placeholder="Enter your message and press ENTER"
+                />
+                <button onClick={this.onClick}>SEND</button>
             </div>
         );
     }
