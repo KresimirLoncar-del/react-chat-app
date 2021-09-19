@@ -4,20 +4,14 @@ import './App.css';
 import Messages from "./components/Messages";
 import Input from "./components/Input";
 
-function randomName() {
+function randomUsername() {
 
-    const names = [
-        "Ivan", "Marko", "Luka", "Matej", "Tena", "Josipa", "Mihael", "Mihaela",
-        "Valentina", "Petar", "Jelena", "Toni", "Matea", "Karlo", "Klara", "Tea"
+    const usernames = [
+        "optimusprime", "asteroid73", "snake42", "lavaplanet22", "thelionking", "stone06", "thegodfather75",
+        "donut4826", "coffee08", "blackeye87", "sparrow1988", "saxophone", "snowstorm", "flyinginsect45"
     ];
 
-    const surnames = [
-        "Horvat", "Marković", "Ćurić", "Perić", "Jurić", "Jurakić", "Petraš", "Kuleš"
-    ];
-
-    const name = names[Math.floor(Math.random() * names.length)];
-    const surname = surnames[Math.floor(Math.random() * surnames.length)];
-    return name + " " + surname;
+    return usernames[Math.floor(Math.random() * usernames.length)];
 }
 
 class App extends Component {
@@ -29,7 +23,7 @@ class App extends Component {
         this.state = {
             messages: [],
             member: {
-                username: randomName()
+                username: randomUsername()
             },
             drone: null
         }
@@ -37,7 +31,7 @@ class App extends Component {
 
     componentDidMount() {
 
-        const drone = new window.Scaledrone("tHliUu9D8T66vDD1", {
+        const drone = new window.Scaledrone("2SXc4Pxb8YCJbclJ", {
             data: this.state.member
         });
 
@@ -55,15 +49,6 @@ class App extends Component {
         });
 
         const room = drone.subscribe("observable-chat-room");
-
-        room.on('open', error => {
-
-            if (error) {
-                return console.error(error);
-            }
-
-            this.setState({messages: room._history.messages});
-        });
 
         room.on('data', (text, member) => {
 

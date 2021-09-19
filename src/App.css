@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    background-image: url("https://www.wallpaperimageshd.com/uploads/2020/01/23/beach-desktop-wallpaper.jpg");
+    background-image: url("https://www.wallpaperimageshd.com/uploads/2020/01/23/beach-desktop-wallpaper.jpg"); /*plava*/
 }
 
 .app-header {
@@ -32,6 +32,7 @@
 
 .messages-message.current-member {
     flex-direction: row-reverse;
+    margin-right: 20px;
     text-align: right;
 }
 
@@ -52,7 +53,8 @@
 
 .message-content > .text {
     padding: 10px;
-    max-width: 46%;
+    max-width: 430px;
+    width: 100%;
     margin: 0;
     border-radius: 12px;
     background-color: cornflowerblue;
@@ -87,4 +89,10 @@ button {
     background-color: orangered;
     color: white;
     border: none;
+}
+
+@media screen and (max-width: 500px) {
+    .message-content > .text {
+        max-width: 250px;
+    }
 }

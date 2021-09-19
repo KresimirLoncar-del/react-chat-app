@@ -1,49 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class Input extends Component {
+function Input(props) {
+    // Declare a new state variable, which we'll call "message"  const [message, setMessage] = useState('');
+    const [message, setMessage] = useState('');
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            message: ''
-        }
+    const onChange = (e) => {
+        setMessage(e.target.value);
     }
 
-    onChange = (e) => {
-        this.setState({message: e.target.value});
-    }
-
-    onClick = (e) => {
+    const onClick = (e) => {
         e.preventDefault();
-        this.send();
+        send();
     }
 
-    onEnterPress = (e) => {
+    const onEnterPress = (e) => {
         if (e.charCode === 13) {
-            this.send();
+            send();
         }
     }
 
-    send = () => {
-        this.props.onSendMessage(this.state.message);
-        this.setState({message: ''});
+    const send = () => {
+        props.onSendMessage(message);
+        setMessage('');
     }
 
-    render() {
-        return (
-            <div className="form-control">
-                <input
-                    onChange={this.onChange}
-                    onKeyPress={this.onEnterPress}
-                    value={this.state.message}
-                    type="text"
-                    placeholder="Enter your message and press ENTER"
-                />
-                <button onClick={this.onClick}>SEND</button>
-            </div>
-        );
-    }
+    return (
+        <div className="form-control">
+            <input
+                onChange={onChange}
+                onKeyPress={onEnterPress}
+                value={message}
+                type="text"
+                placeholder="Enter your message and press ENTER"
+            />
+            <button onClick={onClick}>SEND</button>
+        </div>
+    );
+
 }
 
 export default Input;

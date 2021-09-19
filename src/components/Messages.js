@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Messages extends Component {
+function Messages(props) {
 
-    renderMessage(message) {
+    const renderMessage = (message, index) => {
 
         const {member, text} = message;
 
-        const className = member.id === this.props.currentMember.id
+        const className = member.id === props.currentMember.id
             ? "messages-message current-member"
             : "messages-message";
 
         return (
-            <li className={className}>
+            <li className={className} key={index}>
                 <div className="message-content">
                     <div className="username">
                         {member.clientData.username}
@@ -22,13 +22,12 @@ class Messages extends Component {
         );
     }
 
-    render() {
-        return (
-            <ul className="messages-list">
-                { this.props.messages.map(m => this.renderMessage(m)) }
-            </ul>
-        );
-    }
+    return (
+        <ul className="messages-list">
+            { props.messages.map((m, i) => renderMessage(m, i)) }
+        </ul>
+    );
+
 }
 
 export default Messages;
