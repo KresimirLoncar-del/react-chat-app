@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Input(props) {
-    // Declare a new state variable, which we'll call "message"  const [message, setMessage] = useState('');
+
     const [message, setMessage] = useState('');
 
     const onChange = (e) => {
@@ -20,8 +20,10 @@ function Input(props) {
     }
 
     const send = () => {
-        props.onSendMessage(message);
-        setMessage('');
+        if(message) {
+            props.onSendMessage(message);
+            setMessage('');
+        }
     }
 
     return (
@@ -36,7 +38,6 @@ function Input(props) {
             <button onClick={onClick}>SEND</button>
         </div>
     );
-
 }
 
 export default Input;

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    background-image: url("https://www.wallpaperimageshd.com/uploads/2020/01/23/beach-desktop-wallpaper.jpg"); /*plava*/
+    background-color: #1f4f9e
 }
 
 .app-header {
@@ -54,7 +54,6 @@
 .message-content > .text {
     padding: 10px;
     max-width: 430px;
-    width: 100%;
     margin: 0;
     border-radius: 12px;
     background-color: cornflowerblue;
